@@ -1,0 +1,26 @@
+{
+    "name": "powerise/module-integration",
+    "version": "0.1.0",
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Powerise\\Integration\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Piotr Miloszewicz",
+            "email": "piotr.miloszewicz@brandfil.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.4"
+    }
+}
