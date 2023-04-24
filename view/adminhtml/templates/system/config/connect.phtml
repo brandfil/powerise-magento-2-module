@@ -1,0 +1,9 @@
+<!--<button class="scalable" type="button" id="--><?php //= $block->getHtmlId() ?><!--" data-mage-init='{"sendFeed":{-->
+<!--    "url": "--><?php //= $block->escapeUrl($block->getAjaxUrl()) ?><!--",-->
+<!--    "elementId": "--><?php //= $block->getHtmlId() ?><!--",-->
+<!--    "successText": "--><?php //= $block->escapeHtmlAttr(__('Feed sent!')) ?><!--",-->
+<!--    "failedText": "--><?php //= $block->escapeHtmlAttr(__('Connection failed! Try again?')) ?><!--"}}'>-->
+<!--    <span id="--><?php //= $block->getHtmlId() ?><!--_result">--><?php //= $block->escapeHtml($block->getButtonLabel()) ?><!--</span>-->
+<!--</button>-->
+<button><?= $block->escapeHtml($block->getButtonLabel()) ?></button>
+<a href="<?= $block->getUrl() ?>"><?= $block->getUrl() ?></a>

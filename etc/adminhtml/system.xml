@@ -10,18 +10,16 @@
             <tab>powerise</tab>
             <resource>Idea07_SetIntegration::Idea07</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>API Key</label>
-                <field id="api_host" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>HOST</label>
+                <label>Powerise Integration</label>
+                <field id="api_key" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API Key</label>
+                    <frontend_model>\Powerise\Integration\Block\Adminhtml\System\Config\ApiKey</frontend_model>
                     <comment>An API key is a unique identifier that allows access to protected resources of an API.</comment>
                 </field>
-                <field id="api_login" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>LOGIN</label>
-                    <comment>SET API Login</comment>
-                </field>
-                <field id="api_password" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>PASSWORD</label>
-                    <comment>SET API Password</comment>
+                <field id="connect" translate="button_label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label/>
+                    <button_label>Connect with Powerise</button_label>
+                    <frontend_model>\Powerise\Integration\Block\Adminhtml\System\Config\Connect</frontend_model>
                 </field>
             </group>
         </section>
