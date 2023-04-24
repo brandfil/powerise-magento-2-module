@@ -9,7 +9,7 @@ To install this module, follow these steps:
 3. Run the following command in your Magento 2 installation directory:
 
 ```
-bin/magento module:enable Powerise_IO
+bin/magento module:enable Powerise_Integration
 bin/magento setup:upgrade
 ```
 
