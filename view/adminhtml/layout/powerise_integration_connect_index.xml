@@ -7,11 +7,7 @@
     </referenceBlock>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" template="Powerise_Integration::test.phtml">
-                <arguments>
-                    <argument name="test" xsi:type="string" translate="true">Testx</argument>
-                </arguments>
-            </block>
+            <block class="Magento\Backend\Block\Template" template="Powerise_Integration::connect.phtml"/>
         </referenceContainer>
     </body>
 </page>

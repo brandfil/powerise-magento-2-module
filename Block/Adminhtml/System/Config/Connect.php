@@ -57,7 +57,7 @@ class Connect extends Field
      */
     protected function _getElementHtml(AbstractElement $element)
     {
-        $settingsController = $this->_urlBuilder->getUrl('integration/test/index');
+        $settingsController = $this->_urlBuilder->getUrl('powerise_integration/connect/index');
         $baseUrl = $this->_storeManager->getStore()->getBaseUrl();
         $redirectUrl = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

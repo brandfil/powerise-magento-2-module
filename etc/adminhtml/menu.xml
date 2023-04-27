@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Powerise_Integration::greetings" title="Greetings" translate="title" module="Powerise_Integration" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Powerise_Integration" resource="Powerise_Integration::greetings"/>
-        <add id="Powerise_Integration::greetings_test" title="Hello World" translate="title" module="Powerise_Integration" parent="Powerise_Integration::greetings" sortOrder="10" dependsOnModule="Powerise_Integration" action="integration/test" resource="Powerise_Integration::greetings"/>
-    </menu>
-</config>

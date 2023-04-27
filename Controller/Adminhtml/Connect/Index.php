@@ -1,27 +1,18 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-namespace Powerise\Integration\Controller\Adminhtml\Test;
+namespace Powerise\Integration\Controller\Adminhtml\Connect;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Powerise\Integration\Helper\Configuration;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class Index
  */
 class Index extends Action
 {
-    const MENU_ID = 'Powerise_Integration::greetings_test';
-
     /**
      * @var PageFactory
      */
@@ -49,8 +40,6 @@ class Index extends Action
     }
 
     /**
-     * Load the page defined in view/adminhtml/layout/exampleadminnewpage_helloworld_index.xml
-     *
      * @return Page
      */
     public function execute()
@@ -68,11 +57,6 @@ class Index extends Action
             die();
         }
 
-        $url = $this->_backendUrl->getUrl('integration/test/index');
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Hello World'));
-        $block = $resultPage->getLayout()->getBlock('content_schedule_block1');
-
-        return $resultPage;
+        throw new NotFoundHttpException();
     }
 }
