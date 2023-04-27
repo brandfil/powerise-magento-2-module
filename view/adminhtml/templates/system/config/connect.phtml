@@ -1,9 +1,44 @@
-<!--<button class="scalable" type="button" id="--><?php //= $block->getHtmlId() ?><!--" data-mage-init='{"sendFeed":{-->
-<!--    "url": "--><?php //= $block->escapeUrl($block->getAjaxUrl()) ?><!--",-->
-<!--    "elementId": "--><?php //= $block->getHtmlId() ?><!--",-->
-<!--    "successText": "--><?php //= $block->escapeHtmlAttr(__('Feed sent!')) ?><!--",-->
-<!--    "failedText": "--><?php //= $block->escapeHtmlAttr(__('Connection failed! Try again?')) ?><!--"}}'>-->
-<!--    <span id="--><?php //= $block->getHtmlId() ?><!--_result">--><?php //= $block->escapeHtml($block->getButtonLabel()) ?><!--</span>-->
-<!--</button>-->
-<button><?= $block->escapeHtml($block->getButtonLabel()) ?></button>
-<a href="<?= $block->getUrl() ?>"><?= $block->getUrl() ?></a>
+<? if ($block->getConnected()): ?>
+    <p><strong>You are connected as</strong> <?= $block->getData('firstName') ?> <?= $block->getData('lastName') ?> (<?= $block->getEmail() ?>)</p>
+    <p><a href="#" id="powerise_connect">Do you want to change account?</a></p>
+<? else: ?>
+<button id="powerise_connect"><?= $block->escapeHtml($block->getButtonLabel()) ?></button>
+<? endif; ?>
+
+<script src="//powerise.io/statics/powerisejs/@latest/index.js?t=1682600261"></script>
+<script>
+    require(['Powerise'], function(Powerise){
+        $btn = document.getElementById('powerise_connect')
+        $btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            Powerise.Environment.setDebugMode(true);
+            Powerise.connect({
+                shopUrl: '<?= $block->getData('baseUrl') ?>',
+                ref: '<?= $block->getRef() ?>',
+                platform: 'Magento2'
+            }).then((payload) => {
+                const formBody = [encodeURIComponent('form_key')+"="+encodeURIComponent('<?= $block->getFormKey() ?>')];
+
+                Object.keys(payload).forEach((item) => {
+                    const key = encodeURIComponent(item);
+                    const value = encodeURIComponent(payload[item]);
+                    formBody.push(key+"="+value);
+                });
+
+                fetch('<?= $block->getData('settingsController') ?>', {
+                    method: 'POST',
+                    body: formBody.join("&"),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        // window.location.reload();
+                    })
+                    .catch(error => console.error(error));
+            });
+        });
+    });
+</script>

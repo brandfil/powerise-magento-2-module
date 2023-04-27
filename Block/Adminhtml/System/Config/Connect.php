@@ -5,6 +5,7 @@ namespace Powerise\Integration\Block\Adminhtml\System\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Config\Block\System\Config\Form\Field;
+use Magento\Framework\Data\Form\FormKey;
 use Powerise\Integration\Helper\Configuration;
 
 class Connect extends Field
@@ -56,9 +57,9 @@ class Connect extends Field
      */
     protected function _getElementHtml(AbstractElement $element)
     {
-        if ($this->configuration->getGeneralConfig('connected')) {
-            return '';
-        }
+        $settingsController = $this->_urlBuilder->getUrl('integration/test/index');
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl();
+        $redirectUrl = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         $originalData = $element->getOriginalData();
         $this->addData(
@@ -66,6 +67,14 @@ class Connect extends Field
                 'button_label' => __($originalData['button_label']),
                 'html_id' => $element->getHtmlId(),
                 'url' => $this->_urlBuilder->getUrl('powerise_integration/connect/connect'),
+                'formKey' => $this->formKey->getFormKey(),
+                'firstName' => $this->configuration->getGeneralConfig('first_name'),
+                'lastName' => $this->configuration->getGeneralConfig('last_name'),
+                'email' => $this->configuration->getGeneralConfig('email'),
+                'connected' => $this->configuration->getGeneralConfig('connected'),
+                'settingsController' => $settingsController,
+                'baseUrl' => $baseUrl,
+                'ref' => $redirectUrl,
             ]
         );
 

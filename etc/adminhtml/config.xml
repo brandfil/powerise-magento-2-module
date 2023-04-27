@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <adminhtml>
+        <content_security_policy>
+            <script-src>
+                <![CDATA[
+                    'self'
+                    https://powerise.io
+                    'unsafe-inline'
+                    'unsafe-eval'
+                ]]>
+            </script-src>
+        </content_security_policy>
+    </adminhtml>
+</config>
