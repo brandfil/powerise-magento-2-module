@@ -37,7 +37,7 @@ If you encounter any issues or have any questions, please open an issue on the [
 If you would like to contribute to this module, please fork the repository and submit a pull request.
 
 ## License
-This module is licensed under the [MIT License](./LICENSE.md). See the [LICENSE](./LICENSE.md) file for more information.
+This module is licensed under the [GPLv3 License](./LICENSE). See the [LICENSE](./LICENSE) file for more information.
 
 
 
