@@ -1,6 +1,13 @@
 {
     "name": "powerise/module-integration",
-    "version": "0.1.0",
+    "description": "Official Powerise Integration plugin for Magento 2",
+    "keywords": [
+        "powerise",
+        "powerise module",
+        "powerise magento 2 module",
+        "powerise magento 2"
+    ],
+    "version": "1.0.0",
     "type": "magento2-module",
     "autoload": {
         "files": [
@@ -12,9 +19,13 @@
     },
     "authors": [
         {
-            "name": "Piotr Miloszewicz",
-            "email": "piotr.miloszewicz@brandfil.com"
+            "name": "Powerise",
+            "email": "support@powerise.io"
         }
+    ],
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
     ],
     "minimum-stability": "dev",
     "require": {
